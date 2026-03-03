@@ -30,7 +30,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/practice:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/dock:latest
 
       # 4️⃣ Deploy on EC2 using SSH
       - name: Deploy to EC2
@@ -40,7 +40,7 @@ jobs:
           username: ec2-user
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            docker stop practice || true
-            docker rm practice || true
-            docker pull ${{ secrets.DOCKERHUB_USERNAME }}practice:latest
-            docker run -d -p 80:80 --name practice ${{ secrets.DOCKERHUB_USERNAME }}/practice:latest
+            docker stop dock || true
+            docker rm dock || true
+            docker pull ${{ secrets.DOCKERHUB_USERNAME }}dock:latest
+            docker run -d -p 80:80 --name dock ${{ secrets.DOCKERHUB_USERNAME }}/dock:latest
