@@ -40,7 +40,7 @@ jobs:
           username: ec2-user
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            docker stop myapp || true
-            docker rm myapp || true
+            docker stop practice || true
+            docker rm practice || true
             docker pull ${{ secrets.DOCKERHUB_USERNAME }}practice:latest
             docker run -d -p 80:80 --name practice ${{ secrets.DOCKERHUB_USERNAME }}/practice:latest
