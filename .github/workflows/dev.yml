@@ -43,4 +43,4 @@ jobs:
             docker stop dock || true
             docker rm dock || true
             docker pull ${{ secrets.DOCKERHUB_USERNAME }}dock:latest
-            docker run -d -p 80:80 --name dock ${{ secrets.DOCKERHUB_USERNAME }}/dock:latest
+            docker run -d -p 8000:80 --name dock ${{ secrets.DOCKERHUB_USERNAME }}/dock:latest
